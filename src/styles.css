@@ -1,0 +1,149 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 120%;
+    background-image: url("./images/background.jpg");
+    background-size: cover;
+}
+
+.container {
+    background-color: #020202d0;
+    color: #fff;
+    padding: 1em;
+    margin: 1em;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 30px;    
+}
+
+.header, .main {
+    margin-bottom: 1em;
+}
+
+.header h2, .header p {
+    margin: 0;
+    text-align: center;    
+}
+
+.header p {   
+    font-size: 75%;    
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search_input {
+    border: none;
+    outline: none;
+    width: calc(100% - 100px);
+    padding: 0.4em 1em;
+    border-radius: 24px;
+    background-color: #7a78782b;
+    color: #fff;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    width: 42px;
+    height: 42px;
+    margin: 0.5em;
+    border-radius: 50%;
+    background-color: #7a78782b;
+    color: #fff;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #7a78786b;
+}
+
+.hint {
+    height: 1.5em;
+    margin: 0;
+    padding: 0 1.25em;
+    color: #cf0d0d;
+    font-size: 75%;    
+}
+
+.loading {
+    visibility: hidden;
+    position: relative;
+    max-height: 20px;    
+}
+
+.loading::after {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    content: "Loading...";
+    color: #fff;
+}
+
+.weather {
+    padding: 0 1em;
+}
+
+.city {    
+    margin: 0 0 0.5em 0;
+}
+
+.time, .humidity, .wind {
+    margin: 0 0 0.25em 0;
+}
+
+.temp {
+    margin: 0;    
+}
+
+.clouds {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.icon {
+    position: relative;
+    left: -0.45em;
+    width: 2.75em;
+    height: 2.75em;
+}
+
+.description {
+    text-transform: capitalize;
+    margin: 0;
+}
+
+.footer {
+    text-align: center;
+}
+
+.footer a {        
+    text-decoration: none;
+    color: #fff;
+    font-size: 75%;
+    transition: .2s ease-in-out;
+}
+
+.footer a:hover {
+    color: #e6e2e29b;
+}
+
+
+@media only screen and (max-width: 600px) {
+    :root {
+        font-size: 12px;
+    }
+}
+
