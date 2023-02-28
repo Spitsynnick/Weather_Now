@@ -1,19 +1,19 @@
-const apiKey = "18ae5b950d1246b6d613eff00dad0eb7"; // ключ API
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?"; // URL API
+const apiKey = "18ae5b950d1246b6d613eff00dad0eb7"; 
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?"; 
 
-const searchInput = document.querySelector(".search_input"); // input для ввода названия города
-const searchButton = document.querySelector(".search_btn"); // кнопка для получения метеоданных по названию города
-const geoBtn = document.querySelector(".geo_btn"); // кнопка для получения метеоданных по местоположению пользователя
-const hint = document.querySelector(".hint"); // абзац для вывода подсказки/ошибки определения метеоданных или местоположения
+const searchInput = document.querySelector(".search_input"); 
+const searchButton = document.querySelector(".search_btn"); 
+const geoBtn = document.querySelector(".geo_btn"); 
+const hint = document.querySelector(".hint"); 
 
-const weatherDiv = document.querySelector(".weather"); // div для вывода метеоданных
-const cityParagraph = weatherDiv.querySelector(".city"); // абзац для города
-const timeParagraph = weatherDiv.querySelector(".time"); // абзац для текущей даты и времени
-const tempParagraph = weatherDiv.querySelector(".temp"); // абзац для температуры
-const iconImage = weatherDiv.querySelector(".icon"); // иконка облачности
-const descriptionHeading = weatherDiv.querySelector(".description"); // заголовок для описания облачности
-const humidityParagraph = weatherDiv.querySelector(".humidity"); // абзац для влажности воздуха
-const windParagraph = weatherDiv.querySelector(".wind"); // абзац для скорости и направления ветра
+const weatherDiv = document.querySelector(".weather"); 
+const cityParagraph = weatherDiv.querySelector(".city"); 
+const timeParagraph = weatherDiv.querySelector(".time"); 
+const tempParagraph = weatherDiv.querySelector(".temp"); 
+const iconImage = weatherDiv.querySelector(".icon"); 
+const descriptionHeading = weatherDiv.querySelector(".description"); 
+const humidityParagraph = weatherDiv.querySelector(".humidity"); 
+const windParagraph = weatherDiv.querySelector(".wind"); 
 
 
 // функция для отображения метеоданных на UI: получить объект с данными и отобразить в соответствующих элементах DOM текущую дату и время, метеоданные, а также удалить класс loading
@@ -80,27 +80,23 @@ const locationError = (err) => {
 };
 
 
-// обработчик события загрузки страницы браузером
-document.addEventListener("DOMContentLoaded", () => {
-    // назначить обработчик нажатия кнопки для получения метеоданных по названию города:
+// обработчик события загрузки страницы браузером: назначает событиям на элементах обработчики и выводит на странице погоду в Москве
+document.addEventListener("DOMContentLoaded", () => {    
     searchButton.addEventListener("click", () => {
         fetchWeather(searchInput.value);
     });
-
-    // назначить обработчик нажатия клавиши при вводе города в input: очистить содержимое абзаца для подсказки/ошибки; при нажатии "Enter" - получить данные по API:
+    
     searchInput.addEventListener("keyup", (event) => {
         hint.innerText = "";
         if (event.key === "Enter") {
             fetchWeather(searchInput.value);
         };
     });
-
-    // назначить обработчик нажатия кнопки для получения метеоданных по местоположению пользователя:
+    
     geoBtn.addEventListener("click", () => {
         getCurrentPosition();
     });
-
-    // изначально вывести на UI погоду в Москве:
+    
     fetchWeather("Moscow");
 });
 
